@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixels Art!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="tudo">
+        <div id="paleta">
+
+        <h1 id="title">Pixels Art!</h1>
+        
+        <nav id="color-palette">
+            <h2>Paleta de cores</h2>
+        
+            <p class="color black-palette"></p>
+            <p class="color erase-palette"></p>        
+
+        </nav>
+        
+        <button class="font" id="randomizerColor">Gerar cores!</button> 
+
+        </div>
+        <br>
+
+        <label>Escolha o tamanho do quadro entre 5 e 40</label>
+        <br>
+        <input id="board-size" type="number" min="1" max="40" value="5">
+
+        <button class="font"  id="generate-board">Aplicar</button>
+        <br>
+
+        <button class="font" id="clear-board">Limpar</button>
+
+        <div class="contorno">
+        <header id="pixel-board"></header>
+        </div>
+
+        <script src="script.js"></script>
+
+        <footer>Feito por Bruno Varsan © 2022. Aluno da Trybe, turma 23, tribo A.</footer>
+    </div>
+</body> 
