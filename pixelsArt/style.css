@@ -85,17 +85,18 @@ button{
 
 #paleta {
   background-color: rgb(36, 36, 36);
+  width: 100%;
 }
 
 footer {
-  padding: 10px;
+  padding: 10px 0;
   background-color: black;
   color: white;
   font-size: 15px;
   text-align: left;
   position: absolute;
   bottom: 0;
-  width: 1842px;
+  width: 100%;
 }
 
 .contorno {
@@ -110,11 +111,29 @@ label {
   margin-left: 10px;
 }
 
-.pixel {
+.pixel40 {
   display: inline-block;
   border: solid 1px black;
   width: 40px;
   height: 40px;
+  margin: -5px 0 0;
+  background-color: white;
+}
+
+.pixel30 {
+  display: inline-block;
+  border: solid 1px black;
+  width: 30px;
+  height: 30px;
+  margin: -5px 0 0;
+  background-color: white;
+}
+
+.pixel20 {
+  display: inline-block;
+  border: solid 1px black;
+  width: 20px;
+  height: 20px;
   margin: -5px 0 0;
   background-color: white;
 }
@@ -125,4 +144,18 @@ label {
 
 .selected {
     border: solid 2px rgb(18, 143, 245);
+}
+
+#color10 {
+  position: absolute;
+  margin-top: 17px;
+}
+
+input[type="color"] {
+	-webkit-appearance: none;
+	width: 42px;
+	height: 42px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
 }

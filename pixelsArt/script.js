@@ -29,6 +29,18 @@ let color8 = '';
 let color9 = '';
 let color10 = '';
 
+cheet('↑ → ↓ ← ↑ → ↓ ←', function () {
+  if (palette.length === 11) {
+    alert('Você já usou o cheet');
+  } else {
+    alert('Cheet liberado! Nova cor adicionada!');
+    container2.appendChild(createCheetColor());
+    palette.push(document.querySelectorAll('.color')[10]);
+    palette[10].id = 'color' + 10;
+    palette[10].addEventListener('click', selectColorCheet);
+  }
+});
+
 // função para salvar as cores numa array //
 
 function saveColors() {
@@ -129,42 +141,18 @@ function selectColor(paletaClicada) {
   console.log(bgColorSelect);
 }
 
-// criação de pixels dinâmico //
-
-function createDivPixels() {
-  let newDiv = document.createElement('div');
-  newDiv.className = 'pixel';
-  return newDiv;
-}
-
-// colocando os pixels na tela //
-
-function applyPixels() {
-  if (document.querySelector('#board-size').value < 5) {
-    document.querySelector('#board-size').value = 5;
-    valueNumber = 5;
-    alert('Tamanho informado inválido! Mínimo é 5.');
+function selectColorCheet(paletaClicada) {
+  for (let i = 0; i < palette.length; i += 1) {
+    palette[i].classList.remove('selected');
   }
-  if (document.querySelector('#board-size').value > 40) {
-    valueNumber = 40;
-    document.querySelector('#board-size').value = 40;
-    alert('Tamanho informado inválido! Máximo é 40.');
-  }
-  for (let lin = 0; lin < valueNumber; lin += 1) {
-    for (let col = 0; col < valueNumber; col += 1) {
-      container.appendChild(createDivPixels());
-    }
-    let brokeLine = document.createElement('br');
-    container.appendChild(brokeLine);
-  }
-}
-// função para o botão que limpa os pixels //
 
-function clearPixels() {
-  for (let i = 0; i < document.querySelectorAll('.pixel').length; i += 1) {
-    document.querySelectorAll('.pixel')[i].classList.remove('black');
-    document.querySelectorAll('.pixel')[i].style.backgroundColor = '';
-  }
+  paletaClicada.target.className += ' selected';
+  console.log(paletaClicada.target);
+
+  let bgColor = palette[10].value;
+
+  bgColorSelect = bgColor;
+  console.log(bgColorSelect);
 }
 
 // criação da paleta de cores dinâmico //
@@ -173,6 +161,13 @@ function createPalette() {
   let newDiv = document.createElement('p');
   newDiv.className = 'color';
   return newDiv;
+}
+
+function createCheetColor() {
+  let newBtn = document.createElement('input');
+  newBtn.className = 'color';
+  newBtn.type = 'color';
+  return newBtn;
 }
 
 // colocando a paleta na tela //
@@ -203,11 +198,111 @@ function generatePalette() {
 // função que pinta os pixels //
 
 function clickPixel(pixelClicado) {
-  for (let i = 0; i < allColor.length; i += 1) {
-    if (bgColorSelect === allColor[i]) {
-      pixelClicado.target.style.backgroundColor = allColor[i];
+  if (palette.length === 10) {
+    for (let i = 0; i < allColor.length; i += 1) {
+      if (bgColorSelect === allColor[i]) {
+        pixelClicado.target.style.backgroundColor = allColor[i];
+      }
     }
+  } else if (palette[10].classList[1] === "selected") {
+    pixelClicado.target.style.backgroundColor = palette[10].value;
   }
+}
+
+// criação de pixels dinâmico //
+
+function createDivPixels20() {
+  let newDiv = document.createElement('div');
+  newDiv.className = 'pixel20';
+  return newDiv;
+}
+
+function createDivPixels30() {
+  let newDiv = document.createElement('div');
+  newDiv.className = 'pixel30';
+  return newDiv;
+}
+
+function createDivPixels40() {
+  let newDiv = document.createElement('div');
+  newDiv.className = 'pixel40';
+  return newDiv;
+}
+
+function appendPixel20() {
+  pixels = [];
+  for (let lin = 0; lin < valueNumber; lin += 1) {
+    for (let col = 0; col < valueNumber; col += 1) {
+      container.appendChild(createDivPixels20());
+    }
+    let brokeLine = document.createElement('br');
+    container.appendChild(brokeLine);
+  }
+  for (let i = 0; i < document.querySelectorAll('.pixel20').length; i += 1) {
+    pixels.push(document.querySelectorAll('.pixel20')[i]);
+    pixels[i].id = 'px' + i;
+  }
+  for (let i = 0; i < document.querySelectorAll('.pixel20').length; i += 1) {
+    pixels[i].addEventListener('click', clickPixel);
+  }
+}
+
+function appendPixel30() {
+  pixels = [];
+  for (let lin = 0; lin < valueNumber; lin += 1) {
+    for (let col = 0; col < valueNumber; col += 1) {
+      container.appendChild(createDivPixels30());
+    }
+    let brokeLine = document.createElement('br');
+    container.appendChild(brokeLine);
+  }
+  for (let i = 0; i < document.querySelectorAll('.pixel30').length; i += 1) {
+    pixels.push(document.querySelectorAll('.pixel30')[i]);
+    pixels[i].id = 'px' + i;
+  }
+  for (let i = 0; i < document.querySelectorAll('.pixel30').length; i += 1) {
+    pixels[i].addEventListener('click', clickPixel);
+  }
+}
+
+function appendPixel40() {
+  pixels = [];
+  for (let lin = 0; lin < valueNumber; lin += 1) {
+    for (let col = 0; col < valueNumber; col += 1) {
+      container.appendChild(createDivPixels40());
+    }
+    let brokeLine = document.createElement('br');
+    container.appendChild(brokeLine);
+  }
+  for (let i = 0; i < document.querySelectorAll('.pixel40').length; i += 1) {
+    pixels.push(document.querySelectorAll('.pixel40')[i]);
+    pixels[i].id = 'px' + i;
+  }
+  for (let i = 0; i < document.querySelectorAll('.pixel40').length; i += 1) {
+    pixels[i].addEventListener('click', clickPixel);
+  }
+}
+
+// colocando os pixels na tela //
+
+function applyPixels() {
+  if (document.querySelector('#board-size').value < 5) {
+    document.querySelector('#board-size').value = 5;
+    valueNumber = 5;
+    alert('Tamanho informado inválido! Mínimo é 5.');
+  }
+  if (document.querySelector('#board-size').value > 40) {
+    valueNumber = 40;
+    document.querySelector('#board-size').value = 40;
+    alert('Tamanho informado inválido! Máximo é 40.');
+  }
+  if (valueNumber <= 20) {
+    appendPixel40();
+  } else if (valueNumber <= 30) {
+    appendPixel30();
+    } else {
+      appendPixel20();
+      }
 }
 
 // função do botão de gerar os pixels //
@@ -223,15 +318,6 @@ function generatePixels() {
     valueNumber = 5;
   }
   applyPixels();
-    
-  for (let i = 0; i < document.querySelectorAll('.pixel').length; i += 1) {
-    pixels.push(document.querySelectorAll('.pixel')[i]);
-    pixels[i].id = 'px' + i;
-  }
-
-  for (let i = 0; i < document.querySelectorAll('.pixel').length; i += 1) {
-    pixels[i].addEventListener('click', clickPixel);
-  }
 }
 
 // função para startar o site com as configs //
@@ -246,6 +332,23 @@ function starterWindow() {
   document.querySelector('#board-size').value = '';
 }
 
+// função para o botão que limpa os pixels //
+
+function clearPixels() {
+  for (let i = 0; i < document.querySelectorAll('.pixel20').length; i += 1) {
+    document.querySelectorAll('.pixel20')[i].classList.remove('black');
+    document.querySelectorAll('.pixel20')[i].style.backgroundColor = '';
+  }
+  for (let i = 0; i < document.querySelectorAll('.pixel30').length; i += 1) {
+    document.querySelectorAll('.pixel30')[i].classList.remove('black');
+    document.querySelectorAll('.pixel30')[i].style.backgroundColor = '';
+  }
+  for (let i = 0; i < document.querySelectorAll('.pixel40').length; i += 1) {
+    document.querySelectorAll('.pixel40')[i].classList.remove('black');
+    document.querySelectorAll('.pixel40')[i].style.backgroundColor = '';
+  }
+}
+
 // botão para gerar os pixels com quantidade escolhida pelo usuário //
 
 btnGenerate.addEventListener('click', generatePixels);
@@ -257,7 +360,3 @@ btnRandomicColor.addEventListener('click', btnRandomicColors);
 // botão para limpar os pixels //
 
 btnClear.addEventListener('click', clearPixels);
-
-///////////////// ACRESCIMOS //////
-///// BACKGROUND IMAGE
-///// BORDA BRANCA QUANDO FOR COR ESCURA.
