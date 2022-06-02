@@ -206,6 +206,12 @@ function clickPixel(pixelClicado) {
     }
   } else if (palette[10].classList[1] === "selected") {
     pixelClicado.target.style.backgroundColor = palette[10].value;
+  } else {
+    for (let i = 0; i < allColor.length; i += 1) {
+      if (bgColorSelect === allColor[i]) {
+        pixelClicado.target.style.backgroundColor = allColor[i];
+      }
+    }
   }
 }
 
