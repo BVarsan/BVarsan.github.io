@@ -1,0 +1,92 @@
+html, body {
+    height: 100%;
+    width: 100%;
+  } 
+  
+  #tudo {
+    min-height: 100%;
+    position: relative;
+  }
+  
+  #title {
+    background-color: black;
+    margin-top: 0px;
+    color: rgb(18, 143, 245);
+    font-size: 42px;
+    font-family: 'IBM Plex Serif', sans-serif;
+  }
+  
+  .font {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+  }
+  
+  #textQuestColor , #score {
+    margin: 0;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(18, 143, 245);
+  }
+  
+  body {
+    background-color: rgb(53, 50, 50);
+    text-align: center;
+    margin: 0;
+  }
+  
+  .color {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+  }
+  
+  .color:hover {
+    cursor: pointer;
+  }
+  
+  
+  #paleta {
+    background-color: rgb(36, 36, 36);
+    width: 100%;
+  }
+  
+  footer {
+    padding: 10px 0;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    text-align: left;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  label {
+    color: rgb(18, 143, 245);
+  }
+  
+  .nextLevel {
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+  }
+  
+  .nextLevel:hover {
+    cursor: pointer;
+  }
+  
+  @keyframes fa-blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    60% { opacity: 0.6; }
+  }
+  .fa-blink {
+  -webkit-animation: fa-blink 1s linear infinite;
+  -moz-animation: fa-blink 1s linear infinite;
+  -ms-animation: fa-blink 1s linear infinite;
+  -o-animation: fa-blink 1s linear infinite;
+  animation: fa-blink 1s linear infinite;
+  }
+  
